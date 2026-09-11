@@ -2,7 +2,8 @@ name: Update README cards
 
 on:
   schedule:
-    - cron: "0 3 * * *" # 每天 03:00 UTC 自动更新一次
+    # 每天北京时间 03:00（= UTC 19:00）自动更新一次
+    - cron: "0 19 * * *"
   push:
     paths:
       - ".github/workflows/update-cards.yml"
@@ -52,5 +53,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add profile/*.svg
-          git commit -m "Update README cards" || exit 0
-          git push
+          if git commit -m "Update README cards"; then
+            git push
+          else
+            # 数据没变化时不会产生提交。仓库连续 60 天没有任何提交活动，
+            # GitHub 会自动停掉定时任务；所以超过 45 天就补一个空提交保活。
+            last=$(git log -1 --format=%ct)
+            if [ $(( ($(date +%s) - last) / 86400 )) -ge 45 ]; then
+              git commit --allow-empty -m "Keepalive: keep scheduled workflow enabled"
+              git push
+            fi
+          fi
