@@ -19,7 +19,7 @@
   <img width="800" src="./profile/activity-graph.svg" />
   <br/>
   <!-- https://github.com/tandpfun/skill-icons -->
-  <img align="center" src="https://skillicons.dev/icons?i=py,idea,docker,git,java,html,css,js,github,md,wordpress&theme=light" />
+  <img align="center" src="https://skillicons.dev/icons?i=py,java,js,vue,nodejs,html,css,idea,pycharm,docker,git,github,md,wordpress&theme=light" />
 </p>
 
 <!-- https://github.com/badges/shields -->

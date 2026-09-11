@@ -21,7 +21,8 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&theme=ambient_gradient&include_all_commits=true&hide_border=true&locale=cn
+          # 清爽配色：白底 + 青绿点缀
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&locale=cn&bg_color=ffffff&title_color=0d9488&text_color=24292f&icon_color=14b8a6
           path: profile/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: "true"
@@ -29,7 +30,7 @@ jobs:
       - name: Generate streak card
         uses: DenverCoder1/github-readme-streak-stats@main
         with:
-          options: user=${{ github.repository_owner }}&theme=ambient-gradient&hide_border=true&locale=zh_Hans
+          options: user=${{ github.repository_owner }}&hide_border=true&locale=zh_Hans&background=ffffff&border=e5e7eb&stroke=e5e7eb&ring=14b8a6&fire=14b8a6&currStreakNum=24292f&sideNums=24292f&currStreakLabel=0d9488&sideLabels=57606a&dates=57606a&excludeDaysLabel=57606a
           path: profile/streak.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -37,7 +38,7 @@ jobs:
         uses: maurodesouza/github-readme-activity-graph-action@v1
         with:
           username: ${{ github.repository_owner }}
-          options: theme=tokyo-night&hide_border=true&area=true
+          options: hide_border=true&area=true&bg_color=ffffff&title_color=0d9488&color=24292f&line=14b8a6&point=14b8a6&area_color=14b8a6
           output_path: dist/activity-graph.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
