@@ -23,9 +23,7 @@ jobs:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&theme=ambient_gradient&include_all_commits=true&hide_border=true&locale=cn
           path: profile/stats.svg
-          # GITHUB_TOKEN 是集成 token，读不了 GraphQL 的 stargazers，会报
-          # "Resource not accessible by integration"，所以这里用个人 token 密钥
-          token: ${{ secrets.README_STATS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_error: "true"
 
       - name: Generate streak card
